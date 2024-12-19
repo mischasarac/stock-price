@@ -1,19 +1,14 @@
-import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('Agg')  # For non-interactive plotting
+from datetime import datetime
+import json
 
+now = datetime.now()
+formatted_date = now.strftime("%Y-%m-%d")
 
-# Data
-timestamps = ['2021-01-01 09:30:00', '2021-01-01 09:35:00', '2021-01-01 09:40:00', '2021-01-01 09:45:00', '2021-01-01 09:50:00']
+with open("sampleCoin.json", 'r') as f:
+  data = json.load(f)
+  print(formatted_date)
+  print(((data['status'])['timestamp'])[0:10])
+  if ((data['status'])['timestamp'])[0:10] == formatted_date:
+    print("Data is up to date")
 
-closing_prices = [100, 105, 110, 115, 120]
-
-# Plot the data
-plt.figure(figsize=(10, 5))
-plt.plot(timestamps, closing_prices, marker='o')
-plt.xlabel('Timestamp')
-plt.ylabel('Closing Price')
-plt.title('Stock Prices')
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+print(f"Current date and time: {formatted_date}")
