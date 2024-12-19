@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 
 # API request perameters
+#This isn't going to happen because coinmarketcap has a limit of 100 coins per request and blocks half their features behind a paywall
 
 url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
